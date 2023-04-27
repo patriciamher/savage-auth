@@ -1,6 +1,7 @@
 // config/database.js
+//its an object
 module.exports = {
 
-    'url' : 'mongodb+srv://demo:demo@cluster0.q2ojb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
-    'dbName': 'demo'
+    'url' : 'mongodb+srv://hernandezpatriciam:8pYMda8cUPOxpWF7@cluster0.pu5jnrf.mongodb.net/?retryWrites=true&w=majority', 
+    'dbName': 'entertainment'
 };
