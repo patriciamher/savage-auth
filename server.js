@@ -13,7 +13,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 //error message
 var flash    = require('connect-flash');
-//logger- logs all request
+
 var morgan       = require('morgan');
 //lets use look at cookies- keeps you logged in
 var cookieParser = require('cookie-parser');
@@ -21,9 +21,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 //helps keep open login session- stays logged in 
 var session      = require('express-session');
-//go to config folder and find db.js(exports object) file
-var configDB = require('./config/database.js');//./config/database.js- holds obj
-//sets global variable to db
+
+var configDB = require('./config/database.js');
+
 var db
 
 // configuration ===============================================================
@@ -35,11 +35,10 @@ mongoose.connect(configDB.url, (err, database) => {
   //runs route function
   require('./app/routes.js')(app, passport, db);
 }); // connect to our database
-//function call would look like call(passport/function)
-//get the config folder and find passport file and run the function passport
+
 require('./config/passport')(passport); // pass passport for configuration
 
-//sets up our express application
+// set up our express application
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
@@ -47,12 +46,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //setting public folder so they can be servered
 app.use(express.static('public'))
 
-//all views in ejs
+
 app.set('view engine', 'ejs'); // set up ejs for templating
 
-// required for passport- helps randomizes password
+// required for passport
 app.use(session({
-    secret: 'rcbootcamp2023a', // session secret
+    secret: 'rcbootcamp2023', // session secret
     resave: true,
     saveUninitialized: true
 }));

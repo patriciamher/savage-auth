@@ -1,6 +1,6 @@
-var thumbUp = document.getElementsByClassName("fa-thumbs-up");
-var trash = document.getElementsByClassName("fa-trash");
-var thumbDown = document.getElementsByClassName("fa-thumbs-down");
+const thumbUp = document.getElementsByClassName("fa-thumbs-up");
+const trash = document.getElementsByClassName("fa-trash");
+const thumbDown = document.getElementsByClassName("fa-thumbs-down");
 
 Array.from(thumbUp).forEach(function(element) {
       element.addEventListener('click', function(){
@@ -48,6 +48,7 @@ Array.from(thumbDown).forEach(function(element) {
     })
   });
 });
+
 Array.from(trash).forEach(function(element) {
       element.addEventListener('click', function(){
         const name = this.parentNode.parentNode.childNodes[1].innerText
